@@ -1,8 +1,11 @@
 # Based on https://github.com/actions-rs/meta/blob/master/recipes/quickstart.md
 #
-# Added a cron schedule to run every day. This is particularly helpful
-# for the clippy step, since new releases of Rust tend to introduce new
-# warnings (which in this configuration are treated as errors).
+# - Added a cron schedule to run every day. This is particularly helpful
+#   for the clippy step, since new releases of Rust tend to introduce
+#   new warnings (which in this configuration are treated as errors).
+#
+# - Shortened name so that in the github summary UI you can see the job
+#   names (otherwise they get cut off).
 #
 # License: CC0, see https://github.com/actions-rs/meta/blob/HEAD/LICENSE
 
@@ -12,7 +15,7 @@ on:
   schedule:
     - cron: '0 0 * * *'
 
-name: Continuous integration
+name: CI
 
 jobs:
   check:
