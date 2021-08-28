@@ -6,7 +6,7 @@ Useful snippets of code or configuration.
 
 Unless a different license is specified in the file, everything is
 available under the terms of any of these licenses:
-- [Apache 2.0](LICENSE-APACHE]
+- [Apache 2.0](LICENSE-APACHE)
 - [MIT](LICENSE-MIT)
 - [CC-0](https://creativecommons.org/share-your-work/public-domain/cc0/)
 
