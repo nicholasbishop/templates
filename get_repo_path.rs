@@ -17,6 +17,8 @@ fn get_repo_path() -> Utf8PathBuf {
     exe.parent()
         .map(|path| path.parent())
         .flatten()
+        .map(|path| path.parent())
+        .flatten()
         .ok_or_else(|| anyhow!("not enough parents: {}", exe))?
         .into()
 }
@@ -27,6 +29,6 @@ fn get_repo_path() -> Utf8PathBuf {
 /// located at <repo>/target/<buildmode>/<exename>.
 fn get_repo_path() -> Option<Utf8PathBuf> {
     let exe = env::current_exe().ok()?;
-    let repo = exe.parent()?.parent()?;
+    let repo = exe.parent()?.parent()?.parent()?;
     Utf8PathBuf::from_path_buf(repo.into()).ok()
 }
