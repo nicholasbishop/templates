@@ -1,6 +1,6 @@
 # Based on https://github.com/actions-rs/meta/blob/master/recipes/quickstart.md
 #
-# - Added a cron schedule to run every day. This is particularly helpful
+# - Added a cron schedule to run every week. This is particularly helpful
 #   for the clippy step, since new releases of Rust tend to introduce
 #   new warnings (which in this configuration are treated as errors).
 #
@@ -15,7 +15,7 @@ on:
   push:
   pull_request:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * 0'
 
 name: CI
 
