@@ -23,6 +23,22 @@ fn get_repo_path() -> Utf8PathBuf {
         .into()
 }
 
+// Version without camino:
+
+/// Get the absolute path of the repo. Assumes that this executable is
+/// located at <repo>/target/<buildmode>/<exename>.
+#[throws]
+fn get_repo_path() -> PathBuf {
+    let exe = env::current_exe()?;
+    exe.parent()
+        .map(|path| path.parent())
+        .flatten()
+        .map(|path| path.parent())
+        .flatten()
+        .ok_or_else(|| anyhow!("not enough parents: {}", exe.display()))?
+        .into()
+}
+
 // Option version:
 
 /// Get the absolute path of the repo. Assumes that this executable is
