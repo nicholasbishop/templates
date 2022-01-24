@@ -7,6 +7,9 @@
 # - Shortened name so that in the github summary UI you can see the job
 #   names (otherwise they get cut off).
 #
+# - Install the lld package. Use in combination with the cargo config
+#   from `cargo_lld`.
+#
 # - Added rust-cache which speeds up rebuilds a lot.
 #
 # License: CC0, see https://github.com/actions-rs/meta/blob/HEAD/LICENSE
@@ -26,6 +29,7 @@ jobs:
     name: Check
     runs-on: ubuntu-latest
     steps:
+      - run: sudo apt-get install -y lld
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
         with:
@@ -41,6 +45,7 @@ jobs:
     name: Test Suite
     runs-on: ubuntu-latest
     steps:
+      - run: sudo apt-get install -y lld
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
         with:
@@ -73,6 +78,7 @@ jobs:
     name: Clippy
     runs-on: ubuntu-latest
     steps:
+      - run: sudo apt-get install -y lld
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
         with:
