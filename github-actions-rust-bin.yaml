@@ -31,7 +31,7 @@ jobs:
     steps:
       - run: sudo apt-get install -y lld
       - uses: actions/checkout@v4
-      - uses: Swatinem/rust-cache@v1
+      - uses: Swatinem/rust-cache@v2
       - run: cargo check
 
   test:
@@ -40,7 +40,7 @@ jobs:
     steps:
       - run: sudo apt-get install -y lld
       - uses: actions/checkout@v4
-      - uses: Swatinem/rust-cache@v1
+      - uses: Swatinem/rust-cache@v2
       - run: cargo test
 
   fmt:
@@ -57,5 +57,5 @@ jobs:
     steps:
       - run: sudo apt-get install -y lld
       - uses: actions/checkout@v4
-      - uses: Swatinem/rust-cache@v1
+      - uses: Swatinem/rust-cache@v2
       - run: cargo clippy -- -D warnings
